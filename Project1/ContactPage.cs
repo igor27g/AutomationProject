@@ -8,7 +8,9 @@ namespace Project1
 	{
 		public ContactPage(IWebDriver driver) : base(driver) {}
 
-		public IWebElement MailForm => Driver.FindElement(By.Id("email"));
+        public IWebElement ContactUsDiv => Driver.FindElement(By.Id("contact-link"));
+
+        public IWebElement MailForm => Driver.FindElement(By.Id("email"));
 
 		public IWebElement OrderReference => Driver.FindElement(By.Id("id_order"));
 
@@ -18,15 +20,29 @@ namespace Project1
 
 		public IWebElement SelectSubjectHeading => Driver.FindElement(By.Id("id_contact"));
 
-		
+        internal void ClickContactUs()
+        {
+            ContactUsDiv.Click();
+        }
 
-		internal void GoToContactWebsite()
+        internal void GoToWebiste2()
+        {
+            Driver.Manage().Window.Maximize();
+            Driver.Navigate().GoToUrl("http://automationpractice.com/index.php");
+        }
+
+
+
+        /*internal void GoToContactWebsite()
 		{
 			Driver.Manage().Window.Maximize();
 			Driver.Navigate().GoToUrl("http://automationpractice.com/index.php?controller=contact");
 		}
+        */
 
-		internal void ChoseSubjectHeading(string subjectHeading)
+
+
+        internal void ChoseSubjectHeading(string subjectHeading)
 		{
 			SelectSubjectHeading.SendKeys(subjectHeading);
 		}

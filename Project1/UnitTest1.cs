@@ -9,9 +9,11 @@ namespace Project1
 {
 	[TestClass]
 	[TestCategory("SampleApplicationOne")]
-	public class UnitTest1
+	public class UnitTest1 
 	{
-		private IWebDriver Driver { get; set; }
+        
+
+        private IWebDriver Driver { get; set; }
 		internal TestUser NewTestUser { get; private set; }
 
 		[TestMethod]
@@ -27,21 +29,18 @@ namespace Project1
 			
 		}
 
+		
 		[TestMethod] 
 		public void TestMethod2()
 		{
-			var homePage = new HomePage(Driver);
-			homePage.GoToWebsite();
-			homePage.FindContactUs();
-			homePage.ClickContactUs();
-		}
+            
 
 
-		[TestMethod] 
-		public void TestMethod3()
-		{
-			var contactPage = new ContactPage(Driver);
-			contactPage.GoToContactWebsite();
+            var contactPage = new ContactPage(Driver);
+
+            contactPage.GoToWebiste2();
+            contactPage.ClickContactUs();
+            //contactPage.GoToContactWebsite();
 			contactPage.ChoseSubjectHeading(NewTestUser.subjectHeading); 
 			contactPage.WriteMail(NewTestUser.mailAddress);
 			contactPage.WriteOrderReference(NewTestUser.orderReference);
@@ -50,9 +49,6 @@ namespace Project1
 			
 
 		}
-
-		
-
 
 		[TestInitialize]
 		public void Setup()
@@ -86,4 +82,5 @@ namespace Project1
 		}
 
 	}
+
 }

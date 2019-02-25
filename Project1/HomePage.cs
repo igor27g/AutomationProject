@@ -13,6 +13,8 @@ namespace Project1
 
 		public IWebElement SearchIconElement => Driver.FindElement(By.Name("submit_search"));
 
+       
+
 		public HomePage(IWebDriver driver) : base(driver){}
 
 		internal void GoToWebsite()
@@ -28,19 +30,9 @@ namespace Project1
 			SearchIconElement.Click();
 		}
 
-		internal void ClickContactUs()
-		{
-			ClickContactUsElement = Driver.FindElement(By.ClassName("//*[@id='contact - link']/a"));
-			//#contact-link > a
-			//(By.XPath("//[@id='contact-link']/a"));
-			////*[@id="contact-link"]/a
-			/////*[@id="contact-link"]/a
-		}
+	
 
-		internal void FindContactUs()
-		{
-			ClickContactUsElement.Click();
-		}
+		
 
 
 	}
