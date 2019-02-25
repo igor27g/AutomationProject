@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Project1
 {
+    /// <summary>
+    /// klasa kupa
+    /// </summary>
 	internal class BasePage
 	{
 		public BasePage(IWebDriver driver)
