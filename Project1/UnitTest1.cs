@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -20,8 +21,7 @@ namespace Project1
 		[Description("Test to check that searchbar working")]
 		public void TestMethod1()
 		{
-		
-
+	
 			var homePage = new HomePage(Driver);			
 			homePage.GoToWebsite();
 			homePage.FillSearch(NewTestUser.wordSearch);
@@ -33,21 +33,16 @@ namespace Project1
 		[TestMethod] 
 		public void TestMethod2()
 		{
-            
-
-
+        
             var contactPage = new ContactPage(Driver);
 
-            contactPage.GoToWebiste2();
-            contactPage.ClickContactUs();
-            //contactPage.GoToContactWebsite();
-			contactPage.ChoseSubjectHeading(NewTestUser.subjectHeading); 
+            contactPage.GoToWebsite();
+            contactPage.ClickContactUs();     
+			contactPage.ChoseSubjectHeading(NewTestUser.subjectHeading);
 			contactPage.WriteMail(NewTestUser.mailAddress);
 			contactPage.WriteOrderReference(NewTestUser.orderReference);
 			contactPage.WriteMessage(NewTestUser.messageText);
 		
-			
-
 		}
 
 		[TestInitialize]
@@ -64,16 +59,15 @@ namespace Project1
 
 		}
 
-		/*
+		
 		[TestCleanup]
 		public void CleanUpAfterTest()
 		{
-			Driver.Close();
+			Thread.Sleep(3000);
+			Driver.Close();			
 			Driver.Quit();
 		}
-		*/
-
-       
+		
 	
 		private IWebDriver GetChromeDriver()
 		{

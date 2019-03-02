@@ -58,7 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePage.cs" />
+    <Compile Include="BaseTest.cs" />
     <Compile Include="ContactPage.cs" />
     <Compile Include="HomePage.cs" />
     <Compile Include="TestUser.cs" />

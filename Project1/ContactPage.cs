@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Threading;
 using OpenQA.Selenium;
 
 
 namespace Project1
 {
-	internal class ContactPage : BasePage
+	internal class ContactPage : BaseTest
 	{
 		public ContactPage(IWebDriver driver) : base(driver) {}
 
@@ -25,41 +26,29 @@ namespace Project1
             ContactUsDiv.Click();
         }
 
-        internal void GoToWebiste2()
-        {
-            Driver.Manage().Window.Maximize();
-            Driver.Navigate().GoToUrl("http://automationpractice.com/index.php");
-        }
 
-
-
-        /*internal void GoToContactWebsite()
+		internal void ChoseSubjectHeading(string subjectHeading)
 		{
-			Driver.Manage().Window.Maximize();
-			Driver.Navigate().GoToUrl("http://automationpractice.com/index.php?controller=contact");
-		}
-        */
-
-
-
-        internal void ChoseSubjectHeading(string subjectHeading)
-		{
+			Thread.Sleep(3000);
 			SelectSubjectHeading.SendKeys(subjectHeading);
 		}
 
 		internal void WriteMail(string mailAddress)
 		{
 			MailForm.SendKeys(mailAddress);
+			Thread.Sleep(3000);
 		}
 
 		internal void WriteOrderReference(string orderReference)
 		{
 			OrderReference.SendKeys(orderReference);
+			Thread.Sleep(3000);
 		}
 
 		internal void WriteMessage(string messageText)
 		{
 			MessageForm.SendKeys(messageText);
+			Thread.Sleep(3000);
 			ClickSendButton.Click();
 
 		}

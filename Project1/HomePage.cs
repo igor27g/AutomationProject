@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 
 namespace Project1
 {
-	internal class HomePage : BasePage
+	internal class HomePage : BaseTest
 	{
 		
 
@@ -16,13 +16,6 @@ namespace Project1
        
 
 		public HomePage(IWebDriver driver) : base(driver){}
-
-		internal void GoToWebsite()
-		{
-			Driver.Manage().Window.Maximize();
-			Driver.Navigate().GoToUrl("http://automationpractice.com/index.php");			
-		}
-
 
 		internal void FillSearch(string clothes)
 		{
