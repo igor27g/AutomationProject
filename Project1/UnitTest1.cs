@@ -45,6 +45,20 @@ namespace Project1
 		
 		}
 
+		[TestMethod]
+		public void TestMethod3()
+		{
+			var signInPage = new SignInPage(Driver);
+
+			signInPage.GoToWebsite();
+			signInPage.ClickSignIn();
+			signInPage.EmailAddressWrite(NewTestUser.mailAddress);
+
+
+		}
+
+
+
 		[TestInitialize]
 		public void Setup()
 		{
@@ -59,7 +73,13 @@ namespace Project1
 
 		}
 
-		
+		private IWebDriver GetChromeDriver()
+		{
+			var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+			return new ChromeDriver(outPutDirectory);
+		}
+
+
 		[TestCleanup]
 		public void CleanUpAfterTest()
 		{
@@ -69,11 +89,7 @@ namespace Project1
 		}
 		
 	
-		private IWebDriver GetChromeDriver()
-		{
-			var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);			
-			return new ChromeDriver(outPutDirectory);
-		}
+		
 
 	}
 

@@ -5,7 +5,7 @@ namespace Project1
 {
 	internal class HomePage : BaseTest
 	{
-		
+		public HomePage(IWebDriver driver) : base(driver) { }
 
 		public IWebElement ClickContactUsElement { get; private set; }
 
@@ -13,9 +13,8 @@ namespace Project1
 
 		public IWebElement SearchIconElement => Driver.FindElement(By.Name("submit_search"));
 
-       
 
-		public HomePage(IWebDriver driver) : base(driver){}
+		
 
 		internal void FillSearch(string clothes)
 		{

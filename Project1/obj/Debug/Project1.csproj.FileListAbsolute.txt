@@ -68,3 +68,5 @@ C:\Users\Tadeusz\Source\Repos\AutomationProject\Project1\obj\Debug\Project1.cspr
 C:\Users\Tadeusz\Source\Repos\AutomationProject\Project1\obj\Debug\Project1.csproj.CopyComplete
 C:\Users\Tadeusz\Source\Repos\AutomationProject\Project1\obj\Debug\Project1.dll
 C:\Users\Tadeusz\Source\Repos\AutomationProject\Project1\obj\Debug\Project1.pdb
+C:\Users\Tadeusz\Source\Repos\AutomationProject\Project1\obj\Debug\Project1.Resource1.resources
+C:\Users\Tadeusz\Source\Repos\AutomationProject\Project1\obj\Debug\Project1.csproj.GenerateResource.cache
