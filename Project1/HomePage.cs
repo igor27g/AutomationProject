@@ -5,7 +5,10 @@ namespace Project1
 {
 	internal class HomePage : BaseTest
 	{
+		internal object driver;
+
 		public HomePage(IWebDriver driver) : base(driver) { }
+
 
 		public IWebElement ClickContactUsElement { get; private set; }
 

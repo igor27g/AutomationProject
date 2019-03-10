@@ -12,26 +12,27 @@ namespace Project1
 	[TestCategory("SampleApplicationOne")]
 	public class UnitTest1 
 	{
-        
 
-        private IWebDriver Driver { get; set; }
+		#region properties       
+		private IWebDriver Driver { get; set; }
 		internal TestUser NewTestUser { get; private set; }
+		#endregion
 
+		#region Methods
 		[TestMethod]
 		[Description("Test to check that searchbar working")]
-		public void TestMethod1()
+		public void TestSearch()
 		{
 	
 			var homePage = new HomePage(Driver);			
 			homePage.GoToWebsite();
-			homePage.FillSearch(NewTestUser.wordSearch);
-			
+			homePage.FillSearch(NewTestUser.wordSearch);	
 			
 		}
 
 		
 		[TestMethod] 
-		public void TestMethod2()
+		public void TestContactPage()
 		{
         
             var contactPage = new ContactPage(Driver);
@@ -46,19 +47,22 @@ namespace Project1
 		}
 
 		[TestMethod]
-		public void TestMethod3()
+		public void TestSiggInPage()
 		{
 			var signInPage = new SignInPage(Driver);
 
 			signInPage.GoToWebsite();
 			signInPage.ClickSignIn();
 			signInPage.EmailAddressWrite(NewTestUser.mailAddress);
-
+			
 
 		}
+		#endregion
 
-
-
+		#region Setup
+		/// <summary>
+		/// Method to initialize browser
+		/// </summary>
 		[TestInitialize]
 		public void Setup()
 		{
@@ -72,14 +76,21 @@ namespace Project1
 			NewTestUser.wordSearch = "T-shirt";
 
 		}
+		#endregion
 
+		#region Webdriver
+		/// <summary>
+		/// WebDriver
+		/// </summary>
+		/// <returns></returns>
 		private IWebDriver GetChromeDriver()
 		{
 			var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			return new ChromeDriver(outPutDirectory);
 		}
+		#endregion
 
-
+		#region CleanUp
 		[TestCleanup]
 		public void CleanUpAfterTest()
 		{
@@ -87,9 +98,9 @@ namespace Project1
 			Driver.Close();			
 			Driver.Quit();
 		}
-		
-	
-		
+		#endregion
+
+
 
 	}
 
