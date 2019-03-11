@@ -18,18 +18,23 @@ namespace Project1
 		public IWebElement CreateAccountButton => Driver.FindElement(By.Id("SubmitCreate"));
 		#endregion
 
+		#region Constructors
 		public SignInPage(IWebDriver driver) : base(driver) {}
 
 		internal void ClickSignIn()
 		{
 			SignIn.Click();
 		}
-		
+		#endregion
+
+		#region Methods
 		internal void EmailAddressWrite(string mailAddress)
 		{
 			EmailAddress.SendKeys(mailAddress);
 			Thread.Sleep(3000);
 			CreateAccountButton.Click();
 		}
+		#endregion
+
 	}
 }
