@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Project1
 {
 	internal class TestUser
@@ -13,6 +14,6 @@ namespace Project1
 		public string messageText { get; set; }
 		public string subjectHeading { get; set; }
 
-		public string wordSearch { get; set; }
+		
 	}
 }

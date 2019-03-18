@@ -2,40 +2,53 @@
 using System.IO;
 using System.Reflection;
 using System.Threading;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using NUnit.Framework;
 
 namespace Project1
 {
-	[TestClass]
-	[TestCategory("SampleApplicationOne")]
+	
 	public class Tests
 	{
-		
-
 
 
 		#region properties       
+		/// <summary>
+		///  WebDriver
+		/// </summary>
 		private IWebDriver Driver { get; set; }
+
+		/// <summary>
+		/// TestUser Class
+		/// </summary>
 		internal TestUser NewTestUser { get; private set; }
+
+		/// <summary>
+		/// Searchbar Class
+		/// </summary>
+		internal SearchBar TestSearchBar { get; private set; }
 		#endregion
 
+
+
 		#region Methods
-		[TestMethod]
-		[Description("Test to check that searchbar working")]
+
+
+		[Test(Description = "Test to checkt that searchbar working")]
 		public void TestSearch()
 		{
-	
-			var homePage = new HomePage(Driver);			
+
+			var homePage = new HomePage(Driver);
 			homePage.GoToWebsite();
-			homePage.FillSearch(NewTestUser.wordSearch);
+
+			homePage.FillSearch(TestSearchBar.wordSearch);
 			Assert.IsTrue(Driver.Url.ToLower().Contains("t-shirt&submit_search"));
 			
 		}
 
-		
-		[TestMethod] 
+
+		[Test(Description = "Test to check sending message using contact us")]
 		public void TestContactPage()
 		{
         
@@ -57,7 +70,8 @@ namespace Project1
 
 		}
 
-		[TestMethod]
+
+		[Test(Description = "Test to check signInPage regestration")]
 		public void TestSiggInPage()
 		{
 			var signInPage = new SignInPage(Driver);
@@ -65,6 +79,8 @@ namespace Project1
 			signInPage.GoToWebsite();
 			signInPage.ClickSignIn();
 			signInPage.EmailAddressWrite(NewTestUser.mailAddress);
+			string buttonRegrestation = Driver.FindElement(By.XPath("//div[@class='submit']//span[1]")).Text;
+			Assert.IsTrue(buttonRegrestation.Contains("Create an account"));
 			
 
 		}
@@ -74,17 +90,29 @@ namespace Project1
 		/// <summary>
 		/// Method to initialize browser
 		/// </summary>
-		[TestInitialize]
+
+		[SetUp]
 		public void Setup()
 		{
 			Driver = GetChromeDriver();
-					
+
+
+			/// <summary>
+			/// TestUser Object
+			/// </summary>
 			NewTestUser = new TestUser();
 			NewTestUser.mailAddress = "igor123@jmail.ovh";
 			NewTestUser.orderReference = "123456789";
 			NewTestUser.messageText = "TextMessage should be long and interesting";
 			NewTestUser.subjectHeading = "Webmaster";
-			NewTestUser.wordSearch = "T-shirt";
+
+			/// <summary>
+			/// Searchbar Object
+			/// </summary>
+
+			TestSearchBar = new SearchBar();
+			TestSearchBar.wordSearch = "T-shirt";
+
 
 		}
 		#endregion
@@ -102,7 +130,7 @@ namespace Project1
 		#endregion
 
 		#region CleanUp
-		[TestCleanup]
+		[TearDown]
 		public void CleanUpAfterTest()
 		{
 			Thread.Sleep(3000);

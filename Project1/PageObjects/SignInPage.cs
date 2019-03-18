@@ -32,8 +32,12 @@ namespace Project1
 		{
 			EmailAddress.SendKeys(mailAddress);
 			Thread.Sleep(3000);
+
 			CreateAccountButton.Click();
 		}
+
+
+
 		#endregion
 
 	}

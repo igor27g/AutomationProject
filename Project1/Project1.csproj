@@ -58,6 +58,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\SearchBar.cs" />
+    <Compile Include="Components\TopBar.cs" />
+    <Compile Include="Models\SearchBar.cs" />
     <Compile Include="WebDriver\BaseTest.cs" />
     <Compile Include="PageObjects\ContactPage.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
@@ -70,6 +73,7 @@
     <Compile Include="Models\TestUser.cs" />
     <Compile Include="Tests\Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PageObjects\Pages.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
